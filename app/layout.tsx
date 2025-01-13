@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import Header from "@/components/shared/header";
 
 import "./globals.css";
+
 // import { Providers } from "@/shared/components/shared/providers";
 
 export const metadata: Metadata = {
@@ -26,6 +28,7 @@ export default function RootLayout({
                 <link data-rh='true' rel='icon' href='/logo.png' />
             </head>
             <body className={nunito.className}>
+                <Header />
                 {/* <Providers> */}
                 {children}
                 {/* </Providers> */}
