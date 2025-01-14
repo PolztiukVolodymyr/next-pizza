@@ -40,7 +40,7 @@ const Header: FC<HeaderProps> = ({
                                 Next Pizza
                             </h1>
                             <p className='text-sm text-gray-400 leading-3'>
-                                надзвичайно смачно
+                                Надзвичайно смачно
                             </p>
                         </div>
                     </div>
