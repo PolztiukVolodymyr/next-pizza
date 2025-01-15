@@ -2,14 +2,18 @@
 
 import { FC } from "react";
 import { Title } from "./title";
-// import { Input } from "../ui/input";
-// import { RangeSlider } from "./range-slider";
+import FilterCheckbox from "./filter-checkbox";
+import { Input } from "../ui/input";
+import RangeSlider from "./range-slider";
+import { CheckboxFiltersGroup } from "./checkbox-filters-group";
+import { checkboxData } from "../data/checkboxData";
+
 // import { CheckboxFiltersGroup } from "./checkbox-filters-group";
 // import { useQueryFilters, useIngredients, useFilters } from "@/shared/hooks";
 
-interface FiltersProps {
+type FiltersProps = {
     className?: string;
-}
+};
 
 const Filters: FC<FiltersProps> = ({ className }) => {
     // const { ingredients, loading } = useIngredients();
@@ -31,6 +35,8 @@ const Filters: FC<FiltersProps> = ({ className }) => {
     return (
         <div className={className}>
             <Title text='Фільтрація' size='sm' className='mb-5 font-bold' />
+
+            <FilterCheckbox text='my checkbox' value='1' />
 
             {/* Верхні чекбокси */}
             {/* <CheckboxFiltersGroup
@@ -60,8 +66,15 @@ const Filters: FC<FiltersProps> = ({ className }) => {
 
             {/* Фільтрація цін */}
             <div className='mt-5 border-y border-y-neutral-100 py-6 pb-7'>
-                <p className='font-bold mb-3'>Цена от и до:</p>
+                <p className='font-bold mb-3'>Ціна від і до:</p>
                 <div className='flex gap-3 mb-5'>
+                    <Input type='number' placeholder='200' min={0} max={500} />
+                    <Input
+                        type='number'
+                        placeholder='200'
+                        min={100}
+                        max={500}
+                    />
                     {/* <Input
                         type='number'
                         placeholder='0'
@@ -86,30 +99,32 @@ const Filters: FC<FiltersProps> = ({ className }) => {
                         }
                     /> */}
                 </div>
-                {/* 
+
                 <RangeSlider
                     min={0}
-                    max={1000}
+                    max={500}
                     step={10}
-                    value={[
-                        filters.prices.priceFrom || 0,
-                        filters.prices.priceTo || 1000,
-                    ]}
-                    onValueChange={updatePrices}
-                /> */}
+                    // value={[
+                    //     filters.prices.priceFrom || 0,
+                    //     filters.prices.priceTo || 1000,
+                    // ]}
+                    // onValueChange={updatePrices}
+                />
             </div>
 
-            {/* <CheckboxFiltersGroup
+            <CheckboxFiltersGroup
                 title='Інградієнти'
                 name='ingredients'
                 className='mt-5'
                 limit={6}
-                defaultItems={items.slice(0, 6)}
-                items={items}
-                loading={loading}
-                onClickCheckbox={filters.setSelectedIngredients}
-                selected={filters.selectedIngredients}
-            /> */}
+                defaultItems={checkboxData}
+                items={checkboxData}
+                // defaultItems={items.slice(0, 6)}
+                // items={items}
+                // loading={loading}
+                // onClickCheckbox={filters.setSelectedIngredients}
+                // selected={filters.selectedIngredients}
+            />
         </div>
     );
 };

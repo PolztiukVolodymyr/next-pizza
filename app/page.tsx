@@ -11,7 +11,7 @@ export default function Home() {
                 <Title text='Усі піцци' size='lg' className='font-extrabold ' />
             </Container>
             <TopBar />
-            <Container className='pb-14'>
+            <Container className='pb-14 mt-10'>
                 <div className='flex gap-[60px]'>
                     {/* Фільтрація */}
 
@@ -20,10 +20,11 @@ export default function Home() {
                         <Filters />
                         {/* </Suspense> */}
                     </div>
-                    {/* Список товаров */}
+                    {/* Список товарів */}
                     <div className='flex-1'>
                         <div className='flex flex-col gap-16'>
                             {/* <ProductsGroupList /> */}
+                            Список товарів
                         </div>
                     </div>
                 </div>
