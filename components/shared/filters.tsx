@@ -6,7 +6,7 @@ import FilterCheckbox from "./filter-checkbox";
 import { Input } from "../ui/input";
 import RangeSlider from "./range-slider";
 import { CheckboxFiltersGroup } from "./checkbox-filters-group";
-import { checkboxData } from "../data/checkboxData";
+import { checkboxData } from "../../data/checkboxData";
 
 // import { CheckboxFiltersGroup } from "./checkbox-filters-group";
 // import { useQueryFilters, useIngredients, useFilters } from "@/shared/hooks";
@@ -116,7 +116,7 @@ const Filters: FC<FiltersProps> = ({ className }) => {
                 title='Інградієнти'
                 name='ingredients'
                 className='mt-5'
-                limit={6}
+                limit={5}
                 defaultItems={checkboxData}
                 items={checkboxData}
                 // defaultItems={items.slice(0, 6)}
