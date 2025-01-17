@@ -1,8 +1,10 @@
 // import { Suspense } from "react";
 import Container from "@/components/shared/container";
 import Filters from "@/components/shared/filters";
+import ProductsGroupList from "@/components/shared/products-group-list";
 import { Title } from "@/components/shared/title";
 import TopBar from "@/components/shared/top-bar";
+import { drinkItems, pizzaItems } from "@/data/productItems";
 
 export default function Home() {
     return (
@@ -23,8 +25,17 @@ export default function Home() {
                     {/* Список товарів */}
                     <div className='flex-1'>
                         <div className='flex flex-col gap-16'>
-                            {/* <ProductsGroupList /> */}
-                            Список товарів
+                            <ProductsGroupList
+                                title='Піцци'
+                                categoryId={0}
+                                items={pizzaItems}
+                            />
+
+                            <ProductsGroupList
+                                title='Напої'
+                                categoryId={1}
+                                items={drinkItems}
+                            />
                         </div>
                     </div>
                 </div>
