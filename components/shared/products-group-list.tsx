@@ -2,11 +2,11 @@
 
 import { FC, useRef, useEffect } from "react";
 import { useIntersection } from "react-use";
-
-import { Title } from "./title";
 import { cn } from "@/lib/utils";
+import { Title } from "./title";
+
 import ProductCard from "./product-card";
-// import { useCategoryStore } from "@/shared/store";
+import { useCategoryStore } from "@/store/category";
 // import { ProductWithRelations } from "@/@types/prisma";
 
 type Props = {
@@ -25,7 +25,7 @@ const ProductsGroupList: FC<Props> = ({
     categoryId,
     className,
 }) => {
-    // const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
+    const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
     const intersectionRef = useRef(null);
     const intersection = useIntersection(intersectionRef, {
         threshold: 0.4,
@@ -33,10 +33,9 @@ const ProductsGroupList: FC<Props> = ({
 
     useEffect(() => {
         if (intersection?.isIntersecting) {
-            // setActiveCategoryId(categoryId);
-            console.log(title, categoryId);
+            setActiveCategoryId(categoryId);
         }
-    }, [categoryId, intersection?.isIntersecting, title]);
+    }, [categoryId, intersection?.isIntersecting, setActiveCategoryId, title]);
 
     return (
         <div className={className} id={title} ref={intersectionRef}>
