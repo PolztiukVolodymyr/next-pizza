@@ -4,7 +4,7 @@ import Filters from "@/components/shared/filters";
 import ProductsGroupList from "@/components/shared/products-group-list";
 import { Title } from "@/components/shared/title";
 import TopBar from "@/components/shared/top-bar";
-import { drinkItems, pizzaItems } from "@/data/productItems";
+import { appetizerItems, drinkItems, pizzaItems } from "@/data/productItems";
 
 export default function Home() {
     return (
@@ -27,14 +27,19 @@ export default function Home() {
                         <div className='flex flex-col gap-16'>
                             <ProductsGroupList
                                 title='Піцци'
-                                categoryId={0}
+                                categoryId={1}
                                 items={pizzaItems}
                             />
 
                             <ProductsGroupList
-                                title='Напої'
-                                categoryId={1}
+                                title='Кава'
+                                categoryId={2}
                                 items={drinkItems}
+                            />
+                            <ProductsGroupList
+                                title='Закуски'
+                                categoryId={3}
+                                items={appetizerItems}
                             />
                         </div>
                     </div>

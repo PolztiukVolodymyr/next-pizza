@@ -2,7 +2,10 @@
 
 import { FC } from "react";
 import { cn } from "@/lib/utils";
-// import { useCategoryStore } from "@store/category";
+import { useCategoryStore } from "@/store/category";
+import Link from "next/link";
+// import { useRouter } from "next/navigation";
+
 // import { Category } from "@prisma/client";
 
 type CategoriesProps = {
@@ -11,11 +14,25 @@ type CategoriesProps = {
 };
 
 const Categories: FC<CategoriesProps> = ({ className }) => {
-    // const categoryActiveId = useCategoryStore((state) => state.activeId);
+    const categoryActiveId = useCategoryStore((state) => state.activeId);
+    // const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
+    // const router = useRouter();
 
-    const categories = ["піцци", "кава", "закуски", "десерти", "коктейлі"];
+    const categories = [
+        { id: 1, name: "Піцци" },
+        { id: 2, name: "Кава" },
+        { id: 3, name: "Закуски" },
+        { id: 4, name: "Десерти" },
+        { id: 5, name: "Коктейлі" },
+    ];
 
-    const activeIndex = 0;
+    // console.log("categoryActiveId:", categoryActiveId);
+
+    // const handleClick = (name: string, id: number) => {
+    //     router.replace(`/#${name}`);
+    //     setActiveCategoryId(id);
+    //     console.log("handleClick_Id: ", id);
+    // };
 
     return (
         <div
@@ -24,60 +41,22 @@ const Categories: FC<CategoriesProps> = ({ className }) => {
                 className
             )}
         >
-            {categories.map((cat, index) => (
-                <a
+            {categories.map(({ id, name }, index) => (
+                <Link
                     className={cn(
                         "flex items-center font-bold h-11 rounded-2xl px-5",
-                        activeIndex === index &&
+                        categoryActiveId === id &&
                             "bg-white shadow-md shadow-gray-200 text-primary"
                     )}
-                    // href={`/#${name}`}
+                    href={`/#${name}`}
+                    // onClick={() => handleClick(name, id)}
                     key={index}
                 >
-                    <button>{cat}</button>
-                </a>
+                    <button>{name}</button>
+                </Link>
             ))}
         </div>
     );
 };
 
 export default Categories;
-
-// "use client";
-
-// import { cn } from "@/shared/lib/utils";
-// import { useCategoryStore } from "@/shared/store/category";
-// import { Category } from "@prisma/client";
-// import React from "react";
-
-// interface Props {
-//     items: Category[];
-//     className?: string;
-// }
-
-// export const Categories: React.FC<Props> = ({ items, className }) => {
-//     const categoryActiveId = useCategoryStore((state) => state.activeId);
-
-//     return (
-//         <div
-//             className={cn(
-//                 "inline-flex gap-1 bg-gray-50 p-1 rounded-2xl",
-//                 className
-//             )}
-//         >
-//             {items.map(({ name, id }, index) => (
-//                 <a
-//                     className={cn(
-//                         "flex items-center font-bold h-11 rounded-2xl px-5",
-//                         categoryActiveId === id &&
-//                             "bg-white shadow-md shadow-gray-200 text-primary"
-//                     )}
-//                     href={`/#${name}`}
-//                     key={index}
-//                 >
-//                     <button>{name}</button>
-//                 </a>
-//             ))}
-//         </div>
-//     );
-// };
