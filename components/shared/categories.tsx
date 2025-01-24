@@ -2,8 +2,10 @@
 
 import { FC } from "react";
 import { cn } from "@/lib/utils";
-import { useCategoryStore } from "@/store/category";
 import Link from "next/link";
+import { useCategoryStore } from "@/store/category";
+import { categories } from "@/data/categories";
+
 // import { useRouter } from "next/navigation";
 
 // import { Category } from "@prisma/client";
@@ -17,14 +19,6 @@ const Categories: FC<CategoriesProps> = ({ className }) => {
     const categoryActiveId = useCategoryStore((state) => state.activeId);
     // const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
     // const router = useRouter();
-
-    const categories = [
-        { id: 1, name: "Піцци" },
-        { id: 2, name: "Кава" },
-        { id: 3, name: "Закуски" },
-        { id: 4, name: "Десерти" },
-        { id: 5, name: "Коктейлі" },
-    ];
 
     // console.log("categoryActiveId:", categoryActiveId);
 

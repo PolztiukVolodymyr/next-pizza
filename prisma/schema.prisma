@@ -22,6 +22,7 @@ model User {
 
     role             UserRole          @default(USER)
     verificationCode VerificationCode?
+    verified         DateTime?
 
     provider   String?
     providerId String?
