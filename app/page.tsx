@@ -2,51 +2,39 @@
 import Container from "@/components/shared/container";
 import Filters from "@/components/shared/filters";
 import ProductsGroupList from "@/components/shared/products-group-list";
-import { Title } from "@/components/shared/title";
+import {Title} from "@/components/shared/title";
 import TopBar from "@/components/shared/top-bar";
-import { appetizerItems, drinkItems, pizzaItems } from "@/data/productItems";
+import {appetizerItems, drinkItems, pizzaItems} from "@/data/productItems";
 
 export default function Home() {
-    return (
-        <>
-            <Container className='mt-10'>
-                <Title text='Усі піцци' size='lg' className='font-extrabold ' />
-            </Container>
-            <TopBar />
-            <Container className='pb-14 mt-10'>
-                <div className='flex gap-[60px]'>
-                    {/* Фільтрація */}
+	return (
+		<>
+			<Container className="mt-10">
+				<Title text="Усі піцци" size="lg" className="font-extrabold " />
+			</Container>
+			<TopBar />
+			<Container className="pb-14 mt-10">
+				<div className="flex gap-[60px]">
+					{/* Фільтрація */}
 
-                    <div className='w-[250px]'>
-                        {/* <Suspense> */}
-                        <Filters />
-                        {/* </Suspense> */}
-                    </div>
-                    {/* Список товарів */}
-                    <div className='flex-1'>
-                        <div className='flex flex-col gap-16'>
-                            <ProductsGroupList
-                                title='Піцци'
-                                categoryId={1}
-                                items={pizzaItems}
-                            />
+					<div className="w-[250px]">
+						{/* <Suspense> */}
+						<Filters />
+						{/* </Suspense> */}
+					</div>
+					{/* Список товарів */}
+					<div className="flex-1">
+						<div className="flex flex-col gap-16">
+							<ProductsGroupList title="Піцци" categoryId={1} items={pizzaItems} />
 
-                            <ProductsGroupList
-                                title='Кава'
-                                categoryId={2}
-                                items={drinkItems}
-                            />
-                            <ProductsGroupList
-                                title='Закуски'
-                                categoryId={3}
-                                items={appetizerItems}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        </>
-    );
+							<ProductsGroupList title="Кава" categoryId={2} items={drinkItems} />
+							<ProductsGroupList title="Закуски" categoryId={3} items={appetizerItems} />
+						</div>
+					</div>
+				</div>
+			</Container>
+		</>
+	);
 }
 
 //  return (
