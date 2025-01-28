@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import Container from "./container";
 import ProfileButton from "./profile-button";
 import CartButton from "./cart-button";
+import { SearchInput } from "./search-input";
 
 type HeaderProps = {
     hasSearch?: boolean;
@@ -47,7 +48,9 @@ const Header: FC<HeaderProps> = ({
                 </Link>
 
                 {hasSearch && (
-                    <div className='mx-10 flex-1'>{/* <SearchInput /> */}</div>
+                    <div className='mx-10 flex-1'>
+                        <SearchInput />
+                    </div>
                 )}
 
                 {/* Права частина */}
