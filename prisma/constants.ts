@@ -1,9 +1,9 @@
 export const categories = [
 	{name: "Піцци"},
-	{name: "Кава"},
 	{name: "Закуски"},
 	{name: "Десерти"},
 	{name: "Коктейлі"},
+	{name: "Кава"},
 ];
 
 export const _ingredients = [
@@ -97,87 +97,77 @@ export const _ingredients = [
 export const products = [
 	{
 		name: "Омлет з шинкою та грибами",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
+		imageUrl: "/products/mushrooms_omelette.png",
 		categoryId: 2,
 	},
 	{
 		name: "Омлет із пепероні",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
+		imageUrl: "/products/pepperoni_omelette.png",
 		categoryId: 2,
 	},
 	{
-		name: "Кава Латте",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
+		name: "Гамбургер",
+		imageUrl: "/products/snack_1.png",
 		categoryId: 2,
 	},
 	{
-		name: "Денвіч шинка та сир",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
+		name: "Сирник шоколадний",
+		imageUrl: "/products/dessert_1.png",
 		categoryId: 3,
 	},
 	{
-		name: "Курячі нагетси",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
+		name: "Торт з полуницею",
+		imageUrl: "/products/dessert_2.png",
 		categoryId: 3,
 	},
 	{
-		name: "Картопля з печі з соусом 🌱",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
-		categoryId: 3,
-	},
-	{
-		name: "Додстер",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
-		categoryId: 3,
-	},
-	{
-		name: "Гострий Додстер 🌶️🌶️",
-		imageUrl: "https://mavrapizza.com/wp-content/uploads/PYTA-3-e1608028640939-265x265.jpg",
+		name: "Торт шоколадний",
+		imageUrl: "/products/dessert_3.png",
 		categoryId: 3,
 	},
 	{
 		name: "Банановий молочний коктейль",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/cocktail_1.png",
 		categoryId: 4,
 	},
 	{
 		name: "Карамельне яблуко молочний коктейль",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/cocktail_1.png",
 		categoryId: 4,
 	},
 	{
 		name: "Молочний коктейль із печивом Орео",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/milk_cocktail.png",
 		categoryId: 4,
 	},
 	{
 		name: "Класичний молочний коктейль 👶",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/milk_cocktail.png",
 		categoryId: 4,
 	},
 	{
 		name: "Ірландський Капучіно",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/coffee1.png",
 		categoryId: 5,
 	},
 	{
-		name: "Кава Карамельна капучино",
-		imageUrl: "/coffee1.png",
+		name: "Карамельне капучино",
+		imageUrl: "/products/coffee1.png",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Кокосова латте",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/coffee1.png",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Американо",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/coffee1.png",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Латте",
-		imageUrl: "/coffee1.png",
+		imageUrl: "/products/coffee1.png",
 		categoryId: 5,
 	},
 ];
