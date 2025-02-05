@@ -4,7 +4,6 @@ import Filters from "@/components/shared/filters";
 import ProductsGroupList from "@/components/shared/products-group-list";
 import {Title} from "@/components/shared/title";
 import TopBar from "@/components/shared/top-bar";
-// import {appetizerItems, drinkItems, pizzaItems} from "@/data/productItems";
 import {prisma} from "@/prisma/prisma-client";
 
 export default async function Home() {
@@ -47,10 +46,6 @@ export default async function Home() {
 										/>
 									),
 							)}
-							{/* <ProductsGroupList title="Піцци" categoryId={1} items={pizzaItems} />
-
-							<ProductsGroupList title="Кава" categoryId={2} items={drinkItems} />
-							<ProductsGroupList title="Закуски" categoryId={3} items={appetizerItems} /> */}
 						</div>
 					</div>
 				</div>

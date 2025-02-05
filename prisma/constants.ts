@@ -97,77 +97,77 @@ export const _ingredients = [
 export const products = [
 	{
 		name: "Омлет з шинкою та грибами",
-		imageUrl: "/products/mushrooms_omelette.png",
+		imageUrl: "/products/mushrooms_omelette.webp",
 		categoryId: 2,
 	},
 	{
 		name: "Омлет із пепероні",
-		imageUrl: "/products/pepperoni_omelette.png",
+		imageUrl: "/products/pepperoni_omelette.webp",
 		categoryId: 2,
 	},
 	{
 		name: "Гамбургер",
-		imageUrl: "/products/snack_1.png",
+		imageUrl: "/products/snack_1.webp",
 		categoryId: 2,
 	},
 	{
 		name: "Сирник шоколадний",
-		imageUrl: "/products/dessert_1.png",
+		imageUrl: "/products/dessert_1.webp",
 		categoryId: 3,
 	},
 	{
 		name: "Торт з полуницею",
-		imageUrl: "/products/dessert_2.png",
+		imageUrl: "/products/dessert_2.webp",
 		categoryId: 3,
 	},
 	{
 		name: "Торт шоколадний",
-		imageUrl: "/products/dessert_3.png",
+		imageUrl: "/products/dessert_3.webp",
 		categoryId: 3,
 	},
 	{
 		name: "Банановий молочний коктейль",
-		imageUrl: "/products/cocktail_1.png",
+		imageUrl: "/products/cocktail_1.webp",
 		categoryId: 4,
 	},
 	{
 		name: "Карамельне яблуко молочний коктейль",
-		imageUrl: "/products/cocktail_1.png",
+		imageUrl: "/products/cocktail_1.webp",
 		categoryId: 4,
 	},
 	{
 		name: "Молочний коктейль із печивом Орео",
-		imageUrl: "/products/milk_cocktail.png",
+		imageUrl: "/products/milk_cocktail.webp",
 		categoryId: 4,
 	},
 	{
 		name: "Класичний молочний коктейль 👶",
-		imageUrl: "/products/milk_cocktail.png",
+		imageUrl: "/products/milk_cocktail.webp",
 		categoryId: 4,
 	},
 	{
 		name: "Ірландський Капучіно",
-		imageUrl: "/products/coffee1.png",
+		imageUrl: "/products/coffee1.webp",
 		categoryId: 5,
 	},
 	{
 		name: "Карамельне капучино",
-		imageUrl: "/products/coffee1.png",
+		imageUrl: "/products/coffee1.webp",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Кокосова латте",
-		imageUrl: "/products/coffee1.png",
+		imageUrl: "/products/coffee1.webp",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Американо",
-		imageUrl: "/products/coffee1.png",
+		imageUrl: "/products/coffee1.webp",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Латте",
-		imageUrl: "/products/coffee1.png",
+		imageUrl: "/products/coffee1.webp",
 		categoryId: 5,
 	},
 ];
