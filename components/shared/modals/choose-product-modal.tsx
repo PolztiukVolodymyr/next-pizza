@@ -28,7 +28,7 @@ const ChooseProductModal: FC<Props> = ({product, className}) => {
 					className,
 				)}
 			>
-				Here will be ProductForm
+				Here will be {product.name}
 				{/* <ProductForm product={product} onSubmit={() => router.back()} /> */}
 			</DialogContent>
 		</Dialog>
