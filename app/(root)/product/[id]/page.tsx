@@ -38,6 +38,7 @@ const ProductPage = async ({params: {id}}: {params: {id: string}}) => {
 			<div className="flex flex-1">
 				<PizzaImage imageUrl={product.imageUrl} size={20} />
 				{/* <ProductForm product={product} /> */}
+
 				<div className="w-[490px] bg-[#f7f6f5] p-7">
 					<Title text={product.name} size="md" className="font-extrabold mb-1" />
 
