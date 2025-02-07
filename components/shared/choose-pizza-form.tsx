@@ -10,8 +10,9 @@ import GroupVariants from "./group-variants";
 // import {PizzaSize, PizzaType, pizzaTypes} from "@/constants/pizza";
 // import {IngredientItem} from "./ingredient-item";
 import {cn} from "@/lib/utils";
-import {PizzaSize, pizzaSizes, PizzaType, pizzaTypes} from "@/constants/pizza";
+import {mapPizzaType, PizzaSize, pizzaSizes, PizzaType, pizzaTypes} from "@/constants/pizza";
 import IngredientItem from "./ingredient-item";
+import {useSet} from "react-use";
 // import {getPizzaDetails} from "@/lib";
 // import {usePizzaOptions} from "@/hooks";
 
@@ -21,14 +22,14 @@ type Props = {
 	ingredients: Ingredient[];
 	items: ProductItem[];
 	loading?: boolean;
-	onSubmit: (itemId: number, ingredients: number[]) => void;
+	// onSubmit: (itemId: number, ingredients: number[]) => void;
 	className?: string;
 };
 
 /**
  * Форма вибору піцци
  */
-const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading, onSubmit, className}) => {
+const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading, className}) => {
 	// const {size, type, selectedIngredients, availableSizes, currentItemId, setSize, setType, addIngredient} =
 	// 	usePizzaOptions(items);
 
@@ -42,6 +43,16 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 
 	const [size, setSize] = useState<PizzaSize>(20);
 	const [type, setType] = useState<PizzaType>(1);
+	const [selectedIngredients, {toggle: addIngredient}] = useSet(new Set<number>([]));
+
+	const textDetaills = `${size} см, ${mapPizzaType[type]} піцца`;
+	const pizzaPrice = items.find((item) => item.pizzaType === type && item.size === size)?.price || 0;
+	const totalIngredientsPrice = ingredients
+		.filter((ingedient) => selectedIngredients.has(ingedient.id))
+		.reduce((acc, ingredient) => acc + ingredient.price, 0);
+	const totalPrice = pizzaPrice + totalIngredientsPrice;
+
+	console.log("ChoosePizzaForm_items:", items);
 
 	return (
 		<div className={cn(className, "flex flex-1")}>
@@ -50,10 +61,7 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 			<div className="w-[490px] bg-[#f7f6f5] p-5">
 				<Title text={name} size="md" className="font-extrabold mb-1" />
 
-				<p className="text-gray-400">
-					тонке тісто 30 см
-					{/* {textDetaills} */}
-				</p>
+				<p className="text-gray-400">{textDetaills}</p>
 
 				<div className="flex flex-col gap-2 mt-1">
 					<GroupVariants
@@ -83,8 +91,8 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 								name={ingredient.name}
 								price={ingredient.price}
 								imageUrl={ingredient.imageUrl}
-								// onClick={() => addIngredient(ingredient.id)}
-								// active={selectedIngredients.has(ingredient.id)}
+								onClick={() => addIngredient(ingredient.id)}
+								active={selectedIngredients.has(ingredient.id)}
 							/>
 						))}
 					</div>
@@ -95,9 +103,7 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 					// onClick={handleClickAdd}
 					className="h-[55px] px-10 text-base rounded-[18px] w-full mt-5"
 				>
-					Добавити в корзину за
-					{/* {totalPrice} */}
-					100 грн
+					Добавити в корзину за {totalPrice} грн
 				</Button>
 			</div>
 		</div>
