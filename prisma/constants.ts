@@ -8,11 +8,6 @@ export const categories = [
 
 export const _ingredients = [
 	{
-		name: "Сирний бортик",
-		price: 79,
-		imageUrl: "/ingredients/jalapeno_pepper.webp",
-	},
-	{
 		name: "Вершкова моцарелла",
 		price: 49,
 		imageUrl: "/ingredients/creamy_mozzarella.webp",
@@ -35,7 +30,7 @@ export const _ingredients = [
 	{
 		name: "Печериці",
 		price: 39,
-		imageUrl: "/ingredients/tender_chicken.webp",
+		imageUrl: "/ingredients/champignons.webp",
 	},
 	{
 		name: "Шинка",
@@ -75,22 +70,22 @@ export const _ingredients = [
 	{
 		name: "Італійські трави",
 		price: 39,
-		imageUrl: "/ingredients/jalapeno_pepper.webp",
+		imageUrl: "/ingredients/italian_herbs.webp",
 	},
 	{
 		name: "Солодкий перець",
 		price: 39,
-		imageUrl: "/ingredients/jalapeno_pepper.webp",
+		imageUrl: "/ingredients/sweet_pepper.webp",
 	},
 	{
 		name: "Кубики бринзи",
 		price: 49,
-		imageUrl: "/ingredients/jalapeno_pepper.webp",
+		imageUrl: "/ingredients/cubes_of_cheese.webp",
 	},
 	{
 		name: "Мітболи",
 		price: 59,
-		imageUrl: "/ingredients/jalapeno_pepper.webp",
+		imageUrl: "/ingredients/meatballs.webp",
 	},
 ].map((obj, index) => ({id: index + 1, ...obj}));
 
