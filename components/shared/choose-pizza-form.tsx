@@ -1,6 +1,6 @@
 "use client";
 
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {Ingredient, ProductItem} from "@prisma/client";
 
 import PizzaImage from "./pizza-image";
@@ -13,6 +13,7 @@ import {cn} from "@/lib/utils";
 import {mapPizzaType, PizzaSize, pizzaSizes, PizzaType, pizzaTypes} from "@/constants/pizza";
 import IngredientItem from "./ingredient-item";
 import {useSet} from "react-use";
+import {calcTotalPizzaPrice} from "@/lib/calc-total-pizza-price";
 // import {getPizzaDetails} from "@/lib";
 // import {usePizzaOptions} from "@/hooks";
 
@@ -46,13 +47,29 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 	const [selectedIngredients, {toggle: addIngredient}] = useSet(new Set<number>([]));
 
 	const textDetaills = `${size} см, ${mapPizzaType[type]} піцца`;
-	const pizzaPrice = items.find((item) => item.pizzaType === type && item.size === size)?.price || 0;
-	const totalIngredientsPrice = ingredients
-		.filter((ingedient) => selectedIngredients.has(ingedient.id))
-		.reduce((acc, ingredient) => acc + ingredient.price, 0);
-	const totalPrice = pizzaPrice + totalIngredientsPrice;
 
-	console.log("ChoosePizzaForm_items:", items);
+	// const pizzaPrice = items.find((item) => item.pizzaType === type && item.size === size)?.price || 0;
+	// const totalIngredientsPrice = ingredients
+	// 	.filter((ingedient) => selectedIngredients.has(ingedient.id))
+	// 	.reduce((acc, ingredient) => acc + ingredient.price, 0);
+	// const totalPrice = pizzaPrice + totalIngredientsPrice;
+
+	const totalPrice = calcTotalPizzaPrice(type, size, items, ingredients, selectedIngredients);
+
+	const availablePizzas = items.filter((item) => item.pizzaType === type);
+	const aviablePizzaSizes = pizzaSizes.map((item) => ({
+		name: item.name,
+		value: item.value,
+		disabled: !availablePizzas.some((pizza) => Number(pizza.size) === Number(item.value)),
+	}));
+
+	useEffect(() => {
+		const isAviableSise = aviablePizzaSizes.find((item) => Number(item.value) === size && !item.disabled);
+		const filteredPizzasByType = aviablePizzaSizes.find((item) => !item.disabled);
+		if (!isAviableSise && filteredPizzasByType) {
+			setSize(Number(filteredPizzasByType.value) as PizzaSize);
+		}
+	}, [type, size, aviablePizzaSizes]);
 
 	return (
 		<div className={cn(className, "flex flex-1")}>
@@ -65,7 +82,8 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 
 				<div className="flex flex-col gap-2 mt-1">
 					<GroupVariants
-						items={pizzaSizes}
+						// items={pizzaSizes}
+						items={aviablePizzaSizes}
 						value={String(size)}
 						onClick={(value) => setSize(Number(value) as PizzaSize)}
 					/>
