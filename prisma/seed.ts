@@ -11,14 +11,16 @@ const generateProductItem = ({
 	productId,
 	pizzaType,
 	size,
+	price,
 }: {
 	productId: number;
 	pizzaType?: 1 | 2;
 	size?: 20 | 30 | 40;
+	price?: number;
 }) => {
 	return {
 		productId,
-		price: randomPrise(120, 400),
+		price: price || randomPrise(1000, 2000),
 		pizzaType,
 		size,
 	} as Prisma.ProductItemUncheckedCreateInput;
@@ -84,7 +86,7 @@ async function up() {
 			imageUrl: "/products/pizza_chorizo.webp",
 			categoryId: 1,
 			ingredients: {
-				connect: _ingredients.slice(10, 40),
+				connect: _ingredients.slice(10, 20),
 			},
 		},
 	});
@@ -95,48 +97,75 @@ async function up() {
 				productId: pizza1.id,
 				pizzaType: 1,
 				size: 20,
+				price: 70,
 			}),
+			generateProductItem({
+				productId: pizza1.id,
+				pizzaType: 1,
+				size: 30,
+				price: 90,
+			}),
+			generateProductItem({
+				productId: pizza1.id,
+				pizzaType: 1,
+				size: 40,
+				price: 110,
+			}),
+			// generateProductItem({
+			// 	productId: pizza1.id,
+			// 	pizzaType: 2,
+			// 	size: 20,
+			// 	price: 80,
+			// }),
 			generateProductItem({
 				productId: pizza1.id,
 				pizzaType: 2,
 				size: 30,
+				price: 100,
 			}),
 			generateProductItem({
 				productId: pizza1.id,
 				pizzaType: 2,
 				size: 40,
+				price: 120,
 			}),
 
 			// Піцца "Сирна"
-			generateProductItem({
-				productId: pizza2.id,
-				pizzaType: 1,
-				size: 20,
-			}),
-			generateProductItem({
-				productId: pizza2.id,
-				pizzaType: 1,
-				size: 30,
-			}),
+			// generateProductItem({
+			// 	productId: pizza2.id,
+			// 	pizzaType: 1,
+			// 	size: 20,
+			// 	price: 70,
+			// }),
+			// generateProductItem({
+			// 	productId: pizza2.id,
+			// 	pizzaType: 1,
+			// 	size: 30,
+			// 	price: 90,
+			// }),
 			generateProductItem({
 				productId: pizza2.id,
 				pizzaType: 1,
 				size: 40,
+				price: 110,
 			}),
 			generateProductItem({
 				productId: pizza2.id,
 				pizzaType: 2,
 				size: 20,
+				price: 80,
 			}),
 			generateProductItem({
 				productId: pizza2.id,
 				pizzaType: 2,
 				size: 30,
+				price: 100,
 			}),
 			generateProductItem({
 				productId: pizza2.id,
 				pizzaType: 2,
 				size: 40,
+				price: 120,
 			}),
 
 			// Піцца "Чорізо фреш"
@@ -144,16 +173,37 @@ async function up() {
 				productId: pizza3.id,
 				pizzaType: 1,
 				size: 20,
+				price: 70,
+			}),
+			generateProductItem({
+				productId: pizza3.id,
+				pizzaType: 1,
+				size: 30,
+				price: 90,
+			}),
+			generateProductItem({
+				productId: pizza3.id,
+				pizzaType: 1,
+				size: 40,
+				price: 110,
+			}),
+			generateProductItem({
+				productId: pizza3.id,
+				pizzaType: 2,
+				size: 20,
+				price: 80,
 			}),
 			generateProductItem({
 				productId: pizza3.id,
 				pizzaType: 2,
 				size: 30,
+				price: 100,
 			}),
 			generateProductItem({
 				productId: pizza3.id,
 				pizzaType: 2,
 				size: 40,
+				price: 120,
 			}),
 
 			// Інші продукти

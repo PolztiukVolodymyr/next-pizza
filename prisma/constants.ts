@@ -9,82 +9,82 @@ export const categories = [
 export const _ingredients = [
 	{
 		name: "Вершкова моцарелла",
-		price: 49,
+		price: 35,
 		imageUrl: "/ingredients/creamy_mozzarella.webp",
 	},
 	{
 		name: "Сири чеддер та пармезан",
-		price: 49,
+		price: 45,
 		imageUrl: "/ingredients/cheese_1.webp",
 	},
 	{
 		name: "Гострий перець халапеньо",
-		price: 39,
+		price: 15,
 		imageUrl: "/ingredients/jalapeno_pepper.webp",
 	},
 	{
 		name: "Ніжне курча",
-		price: 49,
+		price: 24,
 		imageUrl: "/ingredients/tender_chicken.webp",
 	},
 	{
 		name: "Печериці",
-		price: 39,
+		price: 23,
 		imageUrl: "/ingredients/champignons.webp",
 	},
 	{
 		name: "Шинка",
-		price: 59,
+		price: 34,
 		imageUrl: "/ingredients/ham.webp",
 	},
 	{
 		name: "Пікантна пепероні",
-		price: 79,
+		price: 37,
 		imageUrl: "/ingredients/pepperoni_sausage.webp",
 	},
 	{
 		name: "Гостра чорізо",
-		price: 79,
+		price: 35,
 		imageUrl: "/ingredients/spicy_chorizo.webp",
 	},
 	{
 		name: "Мариновані огірочки",
-		price: 59,
+		price: 23,
 		imageUrl: "/ingredients/pickled_cucumbers.webp",
 	},
 	{
 		name: "Свіжі томати",
-		price: 59,
+		price: 24,
 		imageUrl: "/ingredients/tomatoes.webp",
 	},
 	{
 		name: "Червона цибуля",
-		price: 59,
+		price: 15,
 		imageUrl: "/ingredients/red_onion.webp",
 	},
 	{
 		name: "Соковиті ананаси",
-		price: 59,
+		price: 29,
 		imageUrl: "/ingredients/juicy_pineapples.webp",
 	},
 	{
 		name: "Італійські трави",
-		price: 39,
+		price: 19,
 		imageUrl: "/ingredients/italian_herbs.webp",
 	},
 	{
 		name: "Солодкий перець",
-		price: 39,
+		price: 32,
 		imageUrl: "/ingredients/sweet_pepper.webp",
 	},
 	{
 		name: "Кубики бринзи",
-		price: 49,
+		price: 34,
 		imageUrl: "/ingredients/cubes_of_cheese.webp",
 	},
 	{
 		name: "Мітболи",
-		price: 59,
+		price: 42,
 		imageUrl: "/ingredients/meatballs.webp",
 	},
 ].map((obj, index) => ({id: index + 1, ...obj}));
