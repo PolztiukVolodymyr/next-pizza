@@ -1,5 +1,5 @@
 export const categories = [
-	{name: "Піцци"},
+	{name: "Піци"},
 	{name: "Закуски"},
 	{name: "Десерти"},
 	{name: "Коктейлі"},
@@ -122,17 +122,17 @@ export const products = [
 	},
 	{
 		name: "Банановий молочний коктейль",
-		imageUrl: "/products/cocktail_1.webp",
+		imageUrl: "/products/banana_milkshake.webp",
 		categoryId: 4,
 	},
 	{
 		name: "Карамельне яблуко молочний коктейль",
-		imageUrl: "/products/cocktail_1.webp",
+		imageUrl: "/products/caramel_apple_milkshake.webp",
 		categoryId: 4,
 	},
 	{
 		name: "Молочний коктейль із печивом Орео",
-		imageUrl: "/products/milk_cocktail.webp",
+		imageUrl: "/products/milkshake_with_oreo_cookies.webp",
 		categoryId: 4,
 	},
 	{
@@ -142,12 +142,12 @@ export const products = [
 	},
 	{
 		name: "Ірландський Капучіно",
-		imageUrl: "/products/coffee1.webp",
+		imageUrl: "/products/Irish_cappuccino.webp",
 		categoryId: 5,
 	},
 	{
 		name: "Карамельне капучино",
-		imageUrl: "/products/coffee1.webp",
+		imageUrl: "/products/caramel_cappuccino.webp",
 		categoryId: 5,
 	},
 	{
@@ -157,12 +157,12 @@ export const products = [
 	},
 	{
 		name: "Кава Американо",
-		imageUrl: "/products/coffee1.webp",
+		imageUrl: "/products/Americano_coffee.webp",
 		categoryId: 5,
 	},
 	{
 		name: "Кава Латте",
-		imageUrl: "/products/coffee1.webp",
+		imageUrl: "/products/coffee_latte.webp",
 		categoryId: 5,
 	},
 ];
