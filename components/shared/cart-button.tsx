@@ -5,34 +5,31 @@ import {cn} from "@/lib/utils";
 import {Button} from "../ui/button";
 import {ArrowRight, ShoppingCart} from "lucide-react";
 import {CartDrawer} from "./cart-drawer";
-// import { useCartStore } from "@/shared/store";
+import {useCartStore} from "@/store/cart";
 
 type CartButtonProps = {
 	className?: string;
 };
 
 const CartButton: FC<CartButtonProps> = ({className}) => {
+	const loading = useCartStore((state) => state.loading);
+	const totalAmount = useCartStore((state) => state.totalAmount);
+	const items = useCartStore((state) => state.items);
+
 	// const [totalAmount, items, loading] = useCartStore((state) => [
-	//     state.totalAmount,
-	//     state.items,
-	//     state.loading,
+	// 	state.totalAmount,
+	// 	state.items,
+	// 	state.loading,
 	// ]);
 
 	return (
 		<CartDrawer>
-			<Button
-				// loading={loading}
-				className={cn(
-					"group relative",
-					// { "w-[105px]": loading },
-					className,
-				)}
-			>
-				<b>100 грн</b>
+			<Button loading={loading} className={cn("group relative", {"w-[105px]": loading}, className)}>
+				<b>{totalAmount} грн</b>
 				<span className="h-full w-[1px] bg-white/30 mx-3" />
 				<div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
 					<ShoppingCart size={16} className="relative" strokeWidth={2} />
-					<b>2</b>
+					<b>{items.length}</b>
 				</div>
 				<ArrowRight
 					size={20}

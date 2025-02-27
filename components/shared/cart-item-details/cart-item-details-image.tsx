@@ -8,5 +8,13 @@ type ImageProps = {
 };
 
 export const CartItemDetailsImage: FC<ImageProps> = ({src, className}) => {
-	return <Image alt="cart image" className={cn("w-[60px] h-[60px]", className)} src={src} />;
+	return (
+		<Image
+			width={60}
+			height={60}
+			alt="cart image"
+			className={cn("w-[60px] h-[60px]", className)}
+			src={src}
+		/>
+	);
 };
