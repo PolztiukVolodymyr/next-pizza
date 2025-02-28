@@ -26,7 +26,7 @@ type Props = {
  * Форма вибору піцци
  */
 const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading, className}) => {
-	const {size, type, selectedIngredients, availableSizes, setSize, setType, addIngredient} =
+	const {size, type, selectedIngredients, availableSizes, currentItemId, setSize, setType, addIngredient} =
 		usePizzaOptions(items);
 
 	const {totalPrice, textDetaills} = getPizzaDetails(type, size, items, ingredients, selectedIngredients);
@@ -36,6 +36,8 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 	// 		onSubmit(currentItemId, Array.from(selectedIngredients));
 	// 	}
 	// };
+
+	console.log("currentItemId", currentItemId);
 
 	return (
 		<div className={cn(className, "flex flex-1")}>
@@ -48,17 +50,10 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 
 				<div className="flex flex-col gap-2 mt-1">
 					<GroupVariants
-						// items={pizzaSizes}
 						items={availableSizes}
 						value={String(size)}
 						onClick={(value) => setSize(Number(value) as PizzaSize)}
 					/>
-
-					{/* <GroupVariants
-						items={availableSizes}
-						value={String(size)}
-						onClick={(value) => setSize(Number(value) as PizzaSize)}
-					/> */}
 
 					<GroupVariants
 						items={pizzaTypes}
