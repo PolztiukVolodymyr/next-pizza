@@ -16,6 +16,8 @@ const CartButton: FC<CartButtonProps> = ({className}) => {
 	const totalAmount = useCartStore((state) => state.totalAmount);
 	const items = useCartStore((state) => state.items);
 
+	//	The code below worked in zustand 4.5.2 but does not in 5.0.3 so use the code above
+
 	// const [totalAmount, items, loading] = useCartStore((state) => [
 	// 	state.totalAmount,
 	// 	state.items,

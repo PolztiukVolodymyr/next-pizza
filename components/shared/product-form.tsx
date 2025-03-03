@@ -13,7 +13,8 @@ interface Props {
 }
 
 export const ProductForm: FC<Props> = ({product, onSubmit: _onSubmit}) => {
-	const [addCartItem, loading] = useCartStore((state) => [state.addCartItem, state.loading]);
+	const loading = useCartStore((state) => state.loading);
+	const addCartItem = useCartStore((state) => state.addCartItem);
 
 	const firstItem = product.items[0];
 	const isPizzaForm = Boolean(firstItem.pizzaType);
@@ -43,7 +44,7 @@ export const ProductForm: FC<Props> = ({product, onSubmit: _onSubmit}) => {
 				name={product.name}
 				ingredients={product.ingredients}
 				items={product.items}
-				// onSubmit={onSubmit}
+				onSubmit={onSubmit}
 				loading={loading}
 			/>
 		);

@@ -18,26 +18,24 @@ type Props = {
 	ingredients: Ingredient[];
 	items: ProductItem[];
 	loading?: boolean;
-	// onSubmit: (itemId: number, ingredients: number[]) => void;
+	onSubmit: (itemId: number, ingredients: number[]) => void;
 	className?: string;
 };
 
 /**
  * Форма вибору піцци
  */
-const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading, className}) => {
+const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, onSubmit, loading, className}) => {
 	const {size, type, selectedIngredients, availableSizes, currentItemId, setSize, setType, addIngredient} =
 		usePizzaOptions(items);
 
 	const {totalPrice, textDetaills} = getPizzaDetails(type, size, items, ingredients, selectedIngredients);
 
-	// const handleClickAdd = () => {
-	// 	if (currentItemId) {
-	// 		onSubmit(currentItemId, Array.from(selectedIngredients));
-	// 	}
-	// };
-
-	console.log("currentItemId", currentItemId);
+	const handleClickAdd = () => {
+		if (currentItemId) {
+			onSubmit(currentItemId, Array.from(selectedIngredients));
+		}
+	};
 
 	return (
 		<div className={cn(className, "flex flex-1")}>
@@ -79,7 +77,7 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, loading
 
 				<Button
 					loading={loading}
-					// onClick={handleClickAdd}
+					onClick={handleClickAdd}
 					className="h-[55px] px-10 text-base rounded-[18px] w-full mt-5"
 				>
 					Добавити в корзину за {totalPrice} грн
