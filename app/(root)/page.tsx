@@ -1,4 +1,4 @@
-// import { Suspense } from "react";
+import {Suspense} from "react";
 import Container from "@/components/shared/container";
 import Filters from "@/components/shared/filters";
 import ProductsGroupList from "@/components/shared/products-group-list";
@@ -28,9 +28,9 @@ export default async function Home() {
 					{/* Фільтрація */}
 
 					<div className="w-[250px]">
-						{/* <Suspense> */}
-						<Filters />
-						{/* </Suspense> */}
+						<Suspense>
+							<Filters />
+						</Suspense>
 					</div>
 					{/* Список товарів */}
 					<div className="flex-1">
