@@ -7,12 +7,11 @@ import {Title} from "./title";
 
 import ProductCard from "./product-card";
 import {useCategoryStore} from "@/store/category";
-// import { ProductWithRelations } from "@/@types/prisma";
+import {ProductWithRelations} from "@/@types/prisma";
 
 type Props = {
 	title: string;
-	// items: ProductWithRelations[];
-	items: any[];
+	items: ProductWithRelations[];
 	categoryId: number;
 	className?: string;
 	listClassName?: string;
@@ -24,8 +23,6 @@ const ProductsGroupList: FC<Props> = ({title, items, listClassName, categoryId, 
 	const intersection = useIntersection(intersectionRef, {
 		threshold: 0.4,
 	});
-
-	// console.log("items_ProductsGroupList:", items);
 
 	useEffect(() => {
 		if (intersection?.isIntersecting) {
@@ -45,7 +42,7 @@ const ProductsGroupList: FC<Props> = ({title, items, listClassName, categoryId, 
 						name={product.name}
 						imageUrl={product.imageUrl}
 						price={product.items[0].price}
-						// ingredients={product.ingredients}
+						ingredients={product.ingredients}
 					/>
 				))}
 			</div>
