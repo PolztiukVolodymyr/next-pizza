@@ -18,24 +18,18 @@ type ProductCardProps = {
 const ProductCard: FC<ProductCardProps> = ({id, name, price, imageUrl, ingredients, className}) => {
 	return (
 		<div className={className}>
-			<Link href={`/product/${id}`}>
+			<Link href={`/product/${id}`} className="flex flex-col h-full">
 				<div className="flex justify-center p-6 bg-secondary rounded-lg h-[260px]">
 					<img className="w-[215px] h-[215px]" src={imageUrl} alt={name} />
 				</div>
 
-				<Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
+				<Title text={name} size="sm" className="mb-3 mt-3 font-bold" />
 
-				<p className="text-sm text-gray-400">
+				<p className="text-sm text-gray-400 mb-4">
 					{ingredients?.map((ingredient) => ingredient.name).join(", ")}
 				</p>
 
-				{/* <p className='text-sm text-gray-400'>
-                    курка, моцарелла, помідори,часник, чедер , пармезан, соус
-                    альфредо
-                    томатний соус, моцарелла, ковбаса пепероні
-                </p> */}
-
-				<div className="flex justify-between items-center mt-4">
+				<div className="flex justify-between items-center mt-auto">
 					<span className="text-[20px]">
 						від <b>{price} грн.</b>
 					</span>
