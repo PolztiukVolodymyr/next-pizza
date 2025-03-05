@@ -19,7 +19,7 @@ const ChooseProductModal: FC<ProductModalProps> = ({product, className}) => {
 		<Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
 			<DialogContent
 				className={cn(
-					"p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden",
+					"p-0 bg-white overflow-hidden w-[500px] max-w-[500px] min-h-[300px] md:max-h-[500px] md:w-[800px] md:max-w-[750px] md:min-h-[400px] lg:w-[1000px] lg:max-w-[1000px] lg:min-h-[500px] lg:max-h-[700px]",
 					className,
 				)}
 			>
