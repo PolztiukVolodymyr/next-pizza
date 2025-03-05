@@ -26,13 +26,13 @@ const ChooseProductForm: FC<Props> = ({name, imageUrl, price, onSubmit, classNam
 				/>
 			</div>
 
-			<div className="w-[490px] bg-[#f7f6f5] p-7">
-				<Title text={name} size="md" className="font-extrabold mb-1" />
+			<div className="w-60 md:w-[350px] lg:w-[490px] bg-[#f7f6f5] p-3 md:p-7">
+				<Title text={name} size="md" className="font-extrabold my-5" />
 
 				<Button
 					loading={loading}
 					onClick={() => onSubmit?.()}
-					className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
+					className="h-12 mmd:h-[55px] px-10 text-sm md:text-base rounded-[18px] w-full mt-10"
 				>
 					Добавити в корзину за {price} грн.
 				</Button>
