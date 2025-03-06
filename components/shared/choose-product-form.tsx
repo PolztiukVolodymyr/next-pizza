@@ -26,7 +26,7 @@ const ChooseProductForm: FC<Props> = ({name, imageUrl, price, onSubmit, classNam
 				/>
 			</div>
 
-			<div className="w-60 md:w-[350px] lg:w-[490px] bg-[#f7f6f5] p-3 md:p-7">
+			<div className="w-60 md:w-[350px] lg:w-[490px] bg-[#f7f6f5] p-3 md:p-7 rounded-xl">
 				<Title text={name} size="md" className="font-extrabold my-5" />
 
 				<Button

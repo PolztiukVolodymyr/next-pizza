@@ -41,7 +41,7 @@ const ChoosePizzaForm: FC<Props> = ({name, items, imageUrl, ingredients, onSubmi
 		<div className={cn(className, "flex flex-1")}>
 			<PizzaImage imageUrl={imageUrl} size={size} />
 
-			<div className="w-[240px] md:w-[340px] lg:w-[480px] bg-[#f7f6f5] p-4 lg:p-5">
+			<div className="w-[240px] md:w-[340px] lg:w-[480px] bg-[#f7f6f5] p-4 lg:p-5 rounded-xl">
 				<Title text={name} size="md" className="font-extrabold mb-1" />
 
 				<p className="text-gray-400">{textDetaills}</p>

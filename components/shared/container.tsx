@@ -9,7 +9,7 @@ const Container: FC<React.PropsWithChildren<HeaderProps>> = ({className, childre
 	return (
 		<div
 			className={cn(
-				"mx-auto max-w-[600px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1400px]",
+				"mx-auto max-w-[600px] md:max-w-[750px] lg:max-w-[970px] xl:max-w-[1200px] 2xl:max-w-[1400px]",
 				className,
 			)}
 		>

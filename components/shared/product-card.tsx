@@ -26,7 +26,10 @@ const ProductCard: FC<ProductCardProps> = ({id, name, price, imageUrl, ingredien
 				<Title text={name} size="sm" className="mb-3 mt-3 font-bold" />
 
 				<p className="text-sm text-gray-400 mb-4">
-					{ingredients?.map((ingredient) => ingredient.name).join(", ")}
+					{ingredients
+						?.map((ingredient) => ingredient.name)
+						.join(", ")
+						.toLowerCase()}
 				</p>
 
 				<div className="flex justify-between items-center mt-auto">

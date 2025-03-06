@@ -15,7 +15,7 @@ export default async function Home({searchParams}: {searchParams: GetSearchParam
 			</Container>
 			<TopBar categories={categories.filter((category) => category.products.length > 0)} />
 			<Container className="pb-14 mt-10">
-				<div className="flex gap-[60px]">
+				<div className="flex justify-center gap-[60px]">
 					{/* Фільтрація */}
 
 					<div className="w-[250px]">
@@ -24,7 +24,7 @@ export default async function Home({searchParams}: {searchParams: GetSearchParam
 						</Suspense>
 					</div>
 					{/* Список товарів */}
-					<div className="flex-1">
+					<div className="flex-1 md:max-w-[350px] lg:max-w-max">
 						<div className="flex flex-col gap-16">
 							{categories.map(
 								(category) =>
