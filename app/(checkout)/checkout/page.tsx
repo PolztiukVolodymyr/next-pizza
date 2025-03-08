@@ -1,10 +1,50 @@
+import {FormProvider, useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {CheckoutFormValues, checkoutFormSchema} from "@/constants/checkout-form-schema";
 import Container from "@/components/shared/container";
 import {Title} from "@/components/shared/title";
 
 export default function CheckoutPage() {
+	const form = useForm<CheckoutFormValues>({
+		resolver: zodResolver(checkoutFormSchema),
+		defaultValues: {
+			email: "",
+			firstName: "",
+			lastName: "",
+			phone: "",
+			address: "",
+			comment: "",
+		},
+	});
+
+	const onSubmit = async (data: CheckoutFormValues) => {
+		console.log(data);
+		// try {
+		// 	setSubmitting(true);
+		// 	const url = await createOrder(data);
+		// 	toast.error("Заказ успешно оформлен! 📝 Переход на оплату... ", {
+		// 		icon: "✅",
+		// 	});
+		// 	if (url) {
+		// 		location.href = url;
+		// 	}
+		// } catch (err) {
+		// 	console.log(err);
+		// 	setSubmitting(false);
+		// 	toast.error("Не удалось создать заказ", {
+		// 		icon: "❌",
+		// 	});
+		// }
+	};
+
 	return (
 		<Container className="mt-10">
 			<Title text="Оформлення замовлення" className="font-extrabold mb-8 text-[36px]" />
+			<FormProvider {...form}>
+				<form onSubmit={form.handleSubmit(onSubmit)}>
+					<div className="flex gap-10"></div>
+				</form>
+			</FormProvider>
 		</Container>
 	);
 }
