@@ -1,8 +1,15 @@
+"use client";
+
+import {useState} from "react";
 import {FormProvider, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {CheckoutFormValues, checkoutFormSchema} from "@/constants/checkout-form-schema";
 import Container from "@/components/shared/container";
 import {Title} from "@/components/shared/title";
+import {CheckoutAddressForm, CheckoutPersonalForm} from "@/components/shared/checkout";
+import {useCart} from "@/hooks/use-cart";
+import {CheckoutCart} from "@/components/shared/checkout/checkout-cart";
+import {CheckoutSidebar} from "@/components/shared/checkout-sidebar";
 
 export default function CheckoutPage() {
 	const form = useForm<CheckoutFormValues>({
@@ -16,25 +23,20 @@ export default function CheckoutPage() {
 			comment: "",
 		},
 	});
+	const [submitting, setSubmitting] = useState(false);
+	const {totalAmount, updateItemQuantity, items, removeCartItem, loading} = useCart();
 
-	const onSubmit = async (data: CheckoutFormValues) => {
-		console.log(data);
-		// try {
-		// 	setSubmitting(true);
-		// 	const url = await createOrder(data);
-		// 	toast.error("Заказ успешно оформлен! 📝 Переход на оплату... ", {
-		// 		icon: "✅",
-		// 	});
-		// 	if (url) {
-		// 		location.href = url;
-		// 	}
-		// } catch (err) {
-		// 	console.log(err);
-		// 	setSubmitting(false);
-		// 	toast.error("Не удалось создать заказ", {
-		// 		icon: "❌",
-		// 	});
-		// }
+	const onClickCountButton = (id: number, quantity: number, type: "plus" | "minus") => {
+		const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
+		updateItemQuantity(id, newQuantity);
+	};
+
+	const onSubmit = (data: CheckoutFormValues) => {
+		console.log("OrderData: ", data);
+		setSubmitting(true);
+		setTimeout(() => {
+			setSubmitting(false);
+		}, 1000);
 	};
 
 	return (
@@ -42,7 +44,28 @@ export default function CheckoutPage() {
 			<Title text="Оформлення замовлення" className="font-extrabold mb-8 text-[36px]" />
 			<FormProvider {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)}>
-					<div className="flex gap-10"></div>
+					<div className="flex gap-10">
+						{/* Ліва частина */}
+						<div className="flex flex-col gap-10 flex-1 mb-20">
+							<CheckoutCart
+								onClickCountButton={onClickCountButton}
+								removeCartItem={removeCartItem}
+								items={items}
+								loading={loading}
+							/>
+							<CheckoutPersonalForm
+								className={loading ? "opacity-40 pointer-events-none" : ""}
+							/>
+							<CheckoutAddressForm
+								className={loading ? "opacity-40 pointer-events-none" : ""}
+							/>
+						</div>
+						{/* Права частина */}
+
+						<div className="w-[450px]">
+							<CheckoutSidebar totalAmount={totalAmount} loading={loading || submitting} />
+						</div>
+					</div>
 				</form>
 			</FormProvider>
 		</Container>
