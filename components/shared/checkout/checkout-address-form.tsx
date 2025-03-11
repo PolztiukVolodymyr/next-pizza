@@ -29,7 +29,7 @@ export const CheckoutAddressForm: React.FC<Props> = ({className}) => {
 						</>
 					)}
 				/> */}
-				<FormInput name="address" className="text-base" placeholder="Адреса" />
+				<FormInput name="address" required className="text-base" placeholder="Адреса" />
 
 				<FormTextarea
 					name="comment"

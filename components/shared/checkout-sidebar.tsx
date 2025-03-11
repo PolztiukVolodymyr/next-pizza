@@ -6,8 +6,8 @@ import {ArrowRight, Package, Percent, Truck} from "lucide-react";
 import {Skeleton} from "../ui/skeleton";
 import {Button} from "../ui/button";
 
-const VAT = 10;
-const DELIVERY_PRICE = 100;
+const VAT = 10; // податок 10%
+const DELIVERY_PRICE = 100; //  доставка 100грн.
 
 type Props = {
 	totalAmount: number;
@@ -17,7 +17,8 @@ type Props = {
 
 export const CheckoutSidebar: FC<Props> = ({totalAmount, loading, className}) => {
 	const vatPrice = (totalAmount * VAT) / 100;
-	const totalPrice = totalAmount + DELIVERY_PRICE + vatPrice;
+	const shippingPrice = totalAmount ? DELIVERY_PRICE : 0;
+	const totalPrice = totalAmount + shippingPrice + vatPrice;
 
 	return (
 		<WhiteBlock className={cn("p-6 sticky top-4", className)}>
@@ -55,7 +56,7 @@ export const CheckoutSidebar: FC<Props> = ({totalAmount, loading, className}) =>
 						Доставка:
 					</div>
 				}
-				value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `${DELIVERY_PRICE} грн.`}
+				value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `${shippingPrice} грн.`}
 			/>
 
 			<Button
