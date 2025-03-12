@@ -10,6 +10,8 @@ import {CheckoutAddressForm, CheckoutPersonalForm} from "@/components/shared/che
 import {useCart} from "@/hooks/use-cart";
 import {CheckoutCart} from "@/components/shared/checkout/checkout-cart";
 import {CheckoutSidebar} from "@/components/shared/checkout-sidebar";
+import toast from "react-hot-toast";
+import {createOrder} from "@/app/actions";
 
 export default function CheckoutPage() {
 	const form = useForm<CheckoutFormValues>({
@@ -31,12 +33,26 @@ export default function CheckoutPage() {
 		updateItemQuantity(id, newQuantity);
 	};
 
-	const onSubmit = (data: CheckoutFormValues) => {
-		console.log("OrderData: ", data);
-		setSubmitting(true);
-		setTimeout(() => {
+	const onSubmit = async (data: CheckoutFormValues) => {
+		try {
+			setSubmitting(true);
+
+			const url = await createOrder(data);
+
+			toast.success("Замовлення успішно оформлено! 📝 Перехід на оплату... ", {
+				icon: "✅",
+			});
+
+			if (url) {
+				location.href = url;
+			}
+		} catch (err) {
+			console.log(err);
 			setSubmitting(false);
-		}, 1000);
+			toast.error("Не вдалось створити замовлення", {
+				icon: "❌",
+			});
+		}
 	};
 
 	return (
