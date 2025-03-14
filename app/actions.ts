@@ -89,11 +89,11 @@ export async function createOrder(data: CheckoutFormValues) {
 			PayOrderTemplate({
 				orderId: order.id,
 				totalAmount: order.totalAmount,
-				paymentUrl: "https://nextjs.org/docs/app/building-your-application",
+				paymentUrl: "https://next.privat24.ua/money-transfer/form/",
 			}),
 		);
 
-		// return "https://nextjs.org/docs/app/building-your-application";
+		return "https://next.privat24.ua/money-transfer/form/";
 	} catch (err) {
 		console.log("[CreateOrder] Server error", err);
 	}
