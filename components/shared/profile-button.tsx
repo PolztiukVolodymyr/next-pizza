@@ -17,7 +17,7 @@ const ProfileButton: FC<ProfileButtonProps> = ({className, onClickSignIn}) => {
 			{!session ? (
 				<Button onClick={onClickSignIn} variant="outline" className="flex items-center gap-1">
 					<User size={16} />
-					Зайти
+					Увійти
 				</Button>
 			) : (
 				<Link href="/profile">

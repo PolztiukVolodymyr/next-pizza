@@ -1,7 +1,7 @@
 import {useEffect, useRef} from "react";
+import {useRouter} from "next/navigation";
 import {Filters} from "./use-filters";
 import qs from "qs";
-import {useRouter} from "next/navigation";
 
 export const useQueryFilters = (filters: Filters) => {
 	const isMounted = useRef(false);
@@ -23,8 +23,6 @@ export const useQueryFilters = (filters: Filters) => {
 			router.push(`?${query}`, {
 				scroll: false,
 			});
-
-			console.log(filters, 999);
 		}
 
 		isMounted.current = true;

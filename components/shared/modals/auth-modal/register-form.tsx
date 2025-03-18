@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import {FC} from "react";
 import {FormProvider, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 // import toast from "react-hot-toast";
@@ -9,12 +9,12 @@ import {TFormRegisterValues, formRegisterSchema} from "./schemas";
 import {FormInput} from "@/components/shared/form/form-input";
 import {Button} from "@/components/ui/button";
 
-interface Props {
+type RegisterFormProps = {
 	onClose?: VoidFunction;
 	onClickLogin?: VoidFunction;
-}
+};
 
-export const RegisterForm: React.FC<Props> = () =>
+export const RegisterForm: FC<RegisterFormProps> = () =>
 	// { onClose, onClickLogin }
 	{
 		const form = useForm<TFormRegisterValues>({
@@ -36,14 +36,14 @@ export const RegisterForm: React.FC<Props> = () =>
 			// 		password: data.password,
 			// 	});
 
-			// 	toast.error("Регистрация успешна 📝. Подтвердите свою почту", {
+			// 	toast.error("Реєстрація успішна 📝. Підтвердьте свою пошту", {
 			// 		icon: "✅",
 			// 	});
 
 			// 	onClose?.();
 			// } catch (error) {
 			//     console.log(error);
-			// 	return toast.error("Неверный E-Mail или пароль", {
+			// 	return toast.error("Неправильний e-mail або пароль", {
 			// 		icon: "❌",
 			// 	});
 			// }
@@ -53,12 +53,12 @@ export const RegisterForm: React.FC<Props> = () =>
 			<FormProvider {...form}>
 				<form className="flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
 					<FormInput name="email" label="E-Mail" required />
-					<FormInput name="fullName" label="Полное имя" required />
+					<FormInput name="fullName" label="Повне ім'я" required />
 					<FormInput name="password" label="Пароль" type="password" required />
-					<FormInput name="confirmPassword" label="Подтвердите пароль" type="password" required />
+					<FormInput name="confirmPassword" label="Підтвердьте пароль" type="password" required />
 
 					<Button loading={form.formState.isSubmitting} className="h-12 text-base" type="submit">
-						Зарегистрироваться
+						Зареєструватись
 					</Button>
 				</form>
 			</FormProvider>

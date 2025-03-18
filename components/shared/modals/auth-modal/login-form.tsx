@@ -1,18 +1,19 @@
-import React from "react";
+import {FC} from "react";
+import Image from "next/image";
+import toast from "react-hot-toast";
 import {FormProvider, useForm} from "react-hook-form";
 import {TFormLoginValues, formLoginSchema} from "./schemas";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Title} from "@/components/shared/title";
 import {FormInput} from "@/components/shared/form/form-input";
 import {Button} from "@/components/ui/button";
-import toast from "react-hot-toast";
 import {signIn} from "next-auth/react";
 
-interface Props {
+type LoginFormProps = {
 	onClose?: VoidFunction;
-}
+};
 
-export const LoginForm: React.FC<Props> = ({onClose}) => {
+export const LoginForm: FC<LoginFormProps> = ({onClose}) => {
 	const form = useForm<TFormLoginValues>({
 		resolver: zodResolver(formLoginSchema),
 		defaultValues: {
@@ -32,14 +33,14 @@ export const LoginForm: React.FC<Props> = ({onClose}) => {
 				throw Error();
 			}
 
-			toast.success("Вы успешно вошли в аккаунт", {
+			toast.success("Ви успішно увійшли до облікового запису", {
 				icon: "✅",
 			});
 
 			onClose?.();
 		} catch (error) {
 			console.error("Error [LOGIN]", error);
-			toast.error("Не удалось войти в аккаунт", {
+			toast.error("Не вдалося увійти до облікового запису", {
 				icon: "❌",
 			});
 		}
@@ -50,17 +51,25 @@ export const LoginForm: React.FC<Props> = ({onClose}) => {
 			<form className="flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
 				<div className="flex justify-between items-center">
 					<div className="mr-2">
-						<Title text="Вход в аккаунт" size="md" className="font-bold" />
-						<p className="text-gray-400">Введите свою почту, чтобы войти в свой аккаунт</p>
+						<Title text="Вхід до облікового запису" size="md" className="font-bold" />
+						<p className="text-gray-400">
+							Введіть свою пошту, щоб увійти до свого облікового запису
+						</p>
 					</div>
-					<img src="/assets/images/phone-icon.png" alt="phone-icon" width={60} height={60} />
+					<Image
+						src="/phone_in_hand.webp"
+						alt="phone-icon"
+						width={60}
+						height={60}
+						className="w-auto h-auto"
+					/>
 				</div>
 
 				<FormInput name="email" label="E-Mail" required />
 				<FormInput name="password" label="Пароль" type="password" required />
 
 				<Button loading={form.formState.isSubmitting} className="h-12 text-base" type="submit">
-					Войти
+					Увійти
 				</Button>
 			</form>
 		</FormProvider>
