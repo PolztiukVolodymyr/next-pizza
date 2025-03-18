@@ -1,20 +1,20 @@
 "use client";
 
-import {Button} from "@/components/ui/button";
-import {Dialog, DialogContent} from "@/components/ui/dialog";
-import {signIn} from "next-auth/react";
+import {FC, useState} from "react";
 import Image from "next/image";
-import React from "react";
-// import {LoginForm} from "./forms/login-form";
-// import {RegisterForm} from "./forms/register-form";
+import {signIn} from "next-auth/react";
+import {Button} from "@/components/ui/button";
+import {Dialog, DialogContent, DialogTitle} from "@/components/ui/dialog";
+import {RegisterForm} from "./register-form";
+import {LoginForm} from "./login-form";
 
-interface Props {
+type AuthModalProps = {
 	open: boolean;
 	onClose: () => void;
-}
+};
 
-export const AuthModal: React.FC<Props> = ({open, onClose}) => {
-	const [type, setType] = React.useState<"login" | "register">("login");
+export const AuthModal: FC<AuthModalProps> = ({open, onClose}) => {
+	const [type, setType] = useState<"login" | "register">("login");
 
 	const onSwitchType = () => {
 		setType(type === "login" ? "register" : "login");
@@ -26,12 +26,12 @@ export const AuthModal: React.FC<Props> = ({open, onClose}) => {
 
 	return (
 		<Dialog open={open} onOpenChange={handleClose}>
-			<DialogContent className="w-[450px] bg-white p-10">
-				{/* {type === "login" ? (
+			<DialogContent className="w-[450px] bg-white p-10" aria-describedby={undefined}>
+				{type === "login" ? (
 					<LoginForm onClose={handleClose} />
 				) : (
 					<RegisterForm onClose={handleClose} />
-				)} */}
+				)}
 
 				<hr />
 				<div className="flex gap-2">
@@ -46,8 +46,13 @@ export const AuthModal: React.FC<Props> = ({open, onClose}) => {
 						type="button"
 						className="gap-2 h-12 p-2 flex-1"
 					>
-						{/* <img className="w-6 h-6" src="https://github.githubassets.com/favicons/favicon.svg" /> */}
-						<Image alt="github" className="w-6 h-6" src="/github_icon.webp" />
+						<Image
+							alt="github"
+							width={30}
+							height={30}
+							className="w-auto h-auto"
+							src="/github_icon.webp"
+						/>
 						GitHub
 					</Button>
 
@@ -62,18 +67,21 @@ export const AuthModal: React.FC<Props> = ({open, onClose}) => {
 						type="button"
 						className="gap-2 h-12 p-2 flex-1"
 					>
-						{/* <img
+						<Image
+							alt="google"
+							width={22}
+							height={22}
 							className="w-6 h-6"
-							src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"
-						/> */}
-						<Image alt="google" className="w-6 h-6" src="/google_icon.webp" />
+							src="/google_icon.webp"
+						/>
 						Google
 					</Button>
 				</div>
 
 				<Button variant="outline" onClick={onSwitchType} type="button" className="h-12">
-					{type !== "login" ? "Зайти" : "Реєстрація"}
+					{type !== "login" ? "Увійти" : "Реєстрація"}
 				</Button>
+				<DialogTitle className="hidden" />
 			</DialogContent>
 		</Dialog>
 	);

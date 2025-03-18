@@ -35,7 +35,10 @@ export const CartDrawer: FC<React.PropsWithChildren> = ({children}) => {
 		<Sheet>
 			<SheetTrigger asChild>{children}</SheetTrigger>
 
-			<SheetContent className="flex flex-col justify-between pb-0 bg-[#F4F1EE]">
+			<SheetContent
+				aria-describedby={undefined}
+				className="flex flex-col justify-between pb-0 bg-[#F4F1EE]"
+			>
 				<div className={cn("flex flex-col h-full", !totalAmount && "justify-center")}>
 					{totalAmount > 0 && (
 						<SheetHeader>
@@ -50,7 +53,7 @@ export const CartDrawer: FC<React.PropsWithChildren> = ({children}) => {
 							<Image src="/images/empty-box.webp" alt="Empty cart" width={120} height={120} />
 							<Title size="sm" text="Корзина пуста" className="text-center font-bold my-2" />
 							<p className="text-center text-neutral-500 mb-5">
-								Добавте хоча б одну піцу, щоб зробити замовлення
+								Добавте хоча б однин товар щоб зробити замовлення
 							</p>
 
 							<SheetClose>
