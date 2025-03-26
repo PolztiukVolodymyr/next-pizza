@@ -52,6 +52,7 @@ export const CartDrawer: FC<React.PropsWithChildren> = ({children}) => {
 						<div className="flex flex-col items-center justify-center w-72 mx-auto">
 							<Image src="/images/empty-box.webp" alt="Empty cart" width={120} height={120} />
 							<Title size="sm" text="Корзина пуста" className="text-center font-bold my-2" />
+							<SheetTitle className="hidden" />
 							<p className="text-center text-neutral-500 mb-5">
 								Добавте хоча б однин товар щоб зробити замовлення
 							</p>

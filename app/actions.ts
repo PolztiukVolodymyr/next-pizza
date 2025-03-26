@@ -5,10 +5,10 @@ import {prisma} from "@/prisma/prisma-client";
 // import {VerificationUserTemplate} from "@/shared/components/shared/email-temapltes/verification-user";
 import {CheckoutFormValues} from "@/constants/checkout-form-schema";
 // import {createPayment, sendEmail} from "@/shared/lib";
-// import {getUserSession} from "@/shared/lib/get-user-session";
-// import {OrderStatus, Prisma} from "@prisma/client";
-// import {hashSync} from "bcrypt";
-import {OrderStatus} from "@prisma/client";
+import {getUserSession} from "@/lib/get-user-session";
+import {OrderStatus, Prisma} from "@prisma/client";
+import {hashSync} from "bcrypt";
+// import {OrderStatus} from "@prisma/client";
 import {cookies} from "next/headers";
 import {sendEmail} from "@/lib/send-email";
 import {PayOrderTemplate} from "@/components/shared/email-temapltes/pay-order";
@@ -208,35 +208,35 @@ export async function createOrder(data: CheckoutFormValues) {
 // 	}
 // }
 
-// export async function updateUserInfo(body: Prisma.UserUpdateInput) {
-// 	try {
-// 		const currentUser = await getUserSession();
+export async function updateUserInfo(body: Prisma.UserUpdateInput) {
+	try {
+		const currentUser = await getUserSession();
 
-// 		if (!currentUser) {
-// 			throw new Error("Користувача не знайдено");
-// 		}
+		if (!currentUser) {
+			throw new Error("Користувача не знайдено");
+		}
 
-// 		const findUser = await prisma.user.findFirst({
-// 			where: {
-// 				id: Number(currentUser.id),
-// 			},
-// 		});
+		const findUser = await prisma.user.findFirst({
+			where: {
+				id: Number(currentUser.id),
+			},
+		});
 
-// 		await prisma.user.update({
-// 			where: {
-// 				id: Number(currentUser.id),
-// 			},
-// 			data: {
-// 				fullName: body.fullName,
-// 				email: body.email,
-// 				password: body.password ? hashSync(body.password as string, 10) : findUser?.password,
-// 			},
-// 		});
-// 	} catch (err) {
-// 		console.log("Error [UPDATE_USER]", err);
-// 		throw err;
-// 	}
-// }
+		await prisma.user.update({
+			where: {
+				id: Number(currentUser.id),
+			},
+			data: {
+				fullName: body.fullName,
+				email: body.email,
+				password: body.password ? hashSync(body.password as string, 10) : findUser?.password,
+			},
+		});
+	} catch (err) {
+		console.log("Error [UPDATE_USER]", err);
+		throw err;
+	}
+}
 
 // export async function registerUser(body: Prisma.UserCreateInput) {
 // 	try {
