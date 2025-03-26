@@ -26,8 +26,8 @@ const PizzaImage: FC<PizzaImage> = ({imageUrl, size, className}) => {
 				})}
 			/>
 
-			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed border-2 rounded-full border-gray-200 w-[250px] h-[250px] md:w-[360px] md:h-[360px] lg:w-[450px] lg:h-[450px]" />
-			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted border-2 rounded-full border-gray-100 w-[300px] h-[300px] md:w-[310px] md:h-[310px] lg:w-[370px] lg:h-[370px]" />
+			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed border-2 rounded-full border-gray-200 w-[250px] h-[250px] md:w-[385px] md:h-[385px] lg:w-[470px] lg:h-[470px]" />
+			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted border-2 rounded-full border-gray-100 w-[300px] h-[300px] md:w-[325px] md:h-[325px] lg:w-[380px] lg:h-[380px]" />
 		</div>
 	);
 };

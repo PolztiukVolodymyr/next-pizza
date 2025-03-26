@@ -30,7 +30,7 @@ async function up() {
 	await prisma.user.createMany({
 		data: [
 			{
-				fullName: "Test User",
+				fullName: "TestUser",
 				email: "testUser@gmail.com",
 				password: hashSync("1111111", 10),
 				verified: new Date(),
@@ -60,7 +60,7 @@ async function up() {
 
 	const pizza1 = await prisma.product.create({
 		data: {
-			name: "Пепероні фреш",
+			name: "Пепероні",
 			imageUrl: "/products/pizza_pepperoni.webp",
 			categoryId: 1,
 			ingredients: {
@@ -89,7 +89,7 @@ async function up() {
 
 	const pizza3 = await prisma.product.create({
 		data: {
-			name: "Чорізо фреш",
+			name: "Чорізо",
 			imageUrl: "/products/pizza_chorizo.webp",
 			categoryId: 1,
 			ingredients: {
@@ -123,7 +123,7 @@ async function up() {
 
 	await prisma.productItem.createMany({
 		data: [
-			// Піцца "Пеппероні фреш"
+			// Піцца "Пеппероні"
 			generateProductItem({
 				productId: pizza1.id,
 				pizzaType: 1,
@@ -199,7 +199,7 @@ async function up() {
 				price: 120,
 			}),
 
-			// Піцца "Чорізо фреш"
+			// Піцца "Чорізо"
 			generateProductItem({
 				productId: pizza3.id,
 				pizzaType: 1,
