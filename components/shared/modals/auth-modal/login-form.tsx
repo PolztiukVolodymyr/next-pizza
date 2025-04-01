@@ -48,7 +48,7 @@ export const LoginForm: FC<LoginFormProps> = ({onClose}) => {
 
 	return (
 		<FormProvider {...form}>
-			<form className="flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
+			<form className="flex flex-col gap-3 lg:gap-5" onSubmit={form.handleSubmit(onSubmit)}>
 				<div className="flex justify-between items-center">
 					<div className="mr-2">
 						<Title text="Вхід до облікового запису" size="md" className="font-bold" />

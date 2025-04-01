@@ -20,18 +20,14 @@ export const AuthModal: FC<AuthModalProps> = ({open, onClose}) => {
 		setType(type === "login" ? "register" : "login");
 	};
 
-	const handleClose = () => {
-		onClose();
-	};
+	// const handleClose = () => {
+	// 	onClose();
+	// };
 
 	return (
-		<Dialog open={open} onOpenChange={handleClose}>
-			<DialogContent className="w-[450px] bg-white p-10" aria-describedby={undefined}>
-				{type === "login" ? (
-					<LoginForm onClose={handleClose} />
-				) : (
-					<RegisterForm onClose={handleClose} />
-				)}
+		<Dialog open={open} onOpenChange={onClose}>
+			<DialogContent className="w-[450px] bg-white p-6 lg:p-10" aria-describedby={undefined}>
+				{type === "login" ? <LoginForm onClose={onClose} /> : <RegisterForm onClose={onClose} />}
 
 				<hr />
 				<div className="flex gap-2">
@@ -44,7 +40,7 @@ export const AuthModal: FC<AuthModalProps> = ({open, onClose}) => {
 							})
 						}
 						type="button"
-						className="gap-2 h-12 p-2 flex-1"
+						className="gap-2 h-12 p-2 flex-1 hover:bg-orange-100"
 					>
 						<Image
 							alt="github"
@@ -65,7 +61,7 @@ export const AuthModal: FC<AuthModalProps> = ({open, onClose}) => {
 							})
 						}
 						type="button"
-						className="gap-2 h-12 p-2 flex-1"
+						className="gap-2 h-12 p-2 flex-1 hover:bg-orange-100"
 					>
 						<Image
 							alt="google"
